@@ -58,9 +58,9 @@ function getColor(runStatus) {
   switch (runStatus) {
     case "planned_and_finished":
       return 0x00ff00;
-    case "success":
+    case "applied":
       return 0x00ff00;
-    case "failure":
+    case "errored":
       return 0xff0000;
     default:
       return 0x3b6bed;
