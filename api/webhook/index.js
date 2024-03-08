@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     const run_message = notifications.length > 0 ? notifications[0].message : "(null)";
 
     const title = `Workspace ${workspace_name}`;
-    const description = `Terraform Run Status - ${run_status}\n${run_message}`;
     const color = getColor(run_status);
 
     const discordMessage = {
@@ -25,7 +24,6 @@ export default async function handler(req, res) {
       embeds: [
         {
           title,
-          description,
           url: run_url,
           color,
           fields: [
