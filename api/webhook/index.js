@@ -26,6 +26,7 @@ export default async function handler(req, res) {
       embeds: [
         {
           title,
+          description,
           url: run_url,
           color,
           fields: [
