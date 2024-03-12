@@ -9,16 +9,16 @@ export default async function handler(req, res) {
     const {
       run_url,
       run_id,
-      run_name,
+      run_message,
       workspace_name,
       notifications,
     } = req.body;
 
     const run_status = notifications.length > 0 ? notifications[0].run_status : "(null)";
-    const run_message = notifications.length > 0 ? notifications[0].message : "(null)";
+    const message = run_message || "(null)";
 
     const title = `Workspace ${workspace_name}`;
-    const description = `Terraform Status - ${run_name}\n`;
+    const description = `Terraform Status - ${message}\n`;
     const color = getColor(run_status);
 
     const discordMessage = {
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
           fields: [
             { name: "Run ID", value: run_id, inline: true },
             { name: "Workspace Name", value: workspace_name, inline: true },
-            { name: "Message", value: run_message, inline: true },
+            { name: "Message", value: message, inline: true },
             { name: "URL", value: run_url, inline: true },
           ],
           footer: { text: "Terraform Notification System" },
