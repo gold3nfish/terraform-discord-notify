@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const message = run_message || "(null)";
 
     const title = `Workspace ${workspace_name}`;
-    const description = `Terraform Status - ${message}\n`;
+    const description = `${message}\n`;
     const color = getColor(run_status);
 
     const discordMessage = {
