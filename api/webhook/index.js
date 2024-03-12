@@ -9,6 +9,7 @@ export default async function handler(req, res) {
     const {
       run_url,
       run_id,
+      run_name,
       workspace_name,
       notifications,
     } = req.body;
@@ -17,6 +18,7 @@ export default async function handler(req, res) {
     const run_message = notifications.length > 0 ? notifications[0].message : "(null)";
 
     const title = `Workspace ${workspace_name}`;
+    const description = `Terraform Status - ${run_name}\n`;
     const color = getColor(run_status);
 
     const discordMessage = {
