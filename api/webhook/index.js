@@ -32,7 +32,6 @@ export default async function handler(req, res) {
           fields: [
             { name: "Run ID", value: run_id, inline: true },
             { name: "Workspace Name", value: workspace_name, inline: true },
-            { name: "Message", value: message, inline: true },
             { name: "URL", value: run_url, inline: true },
           ],
           footer: { text: "Terraform Notification System" },
